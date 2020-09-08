@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#841700</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="mainColor">#373F55</color>
+    <color name="subColor">#FF7830</color>
+    <color name="thirdColor">#0A8DFF</color>
+
+    <color name="whiteColor">#ffffff</color>
+    <color name="greyColor">#726F6F</color>
+    <color name="blackColor">#000000</color>
+    <color name="SignInColor">#012B69</color>
+
+
+
+</resources>
