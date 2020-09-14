@@ -1,7 +1,23 @@
 <resources>
-    <string name="app_name">My E-Commerce</string>
+    <string name="app_name">Electronic shop</string>
+
+    <string-array name="country_list">
+        <item>Egypt</item>
+        <item>Sudan</item>
+        <item>Libya</item>
+        <item>Tunisia</item>
+        <item>Algeria</item>
+        <item>Morocco</item>
+        <item>Mauritania</item>
+        <item>Palestinian</item>
+        <item>Syria</item>
+        <item>Yemen</item>
+    </string-array>
 
     <string name="signUpHint">Create an account to access all features</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="termsandprivacyTextIntroduction">
         We respects the privacy of our users. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our mobile application Electronic Shop, including any other media form, media channel, mobile website, or mobile application related or connected thereto (collectively, the application). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.\nWe reserve the right to make changes to this Privacy Policy at any time and for any reason. We will alert you about any changes by updating the “Last Updated” date of this Privacy Policy. Any changes or modifications will be effective immediately upon posting the updated Privacy Policy on the Site, and you waive the right to receive specific notice of each such change or modification.\nYou are encouraged to periodically review this Privacy Policy to stay informed of updates. You will be deemed to have been made aware of, will be subject to, and will be deemed to have accepted the changes in any revised Privacy Policy by your continued use of the Site after the date such revised Privacy Policy is posted.
