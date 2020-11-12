@@ -1,6 +1,6 @@
 # Electronic-Shop
 E-Commerce Application to buy and sell electronic devices online
-the applicaiton show how to deal with `Firebase`
+the application show how to deal with `Firebase`
 
 ## Technologies and Tools used
 1. `Firebase Authentication`
