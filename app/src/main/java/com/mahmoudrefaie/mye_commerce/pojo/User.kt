@@ -7,6 +7,8 @@ data class User (
     var email : String?=null,
     var password : String?=null,
     var gender : String?=null,
-    var country : String?=null,
-    var verified: Boolean?=null
-)
+    var city : String?=null
+){
+    constructor(id: String,firstName : String,lastName : String, pic: String, email : String, password : String, gender : String,
+                city : String) : this(id,firstName,lastName, email, password, gender, city)
+}

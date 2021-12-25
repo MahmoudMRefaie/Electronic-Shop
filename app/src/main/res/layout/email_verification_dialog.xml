@@ -9,7 +9,7 @@
         android:id="@+id/message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send another email verification ?"
+        android:text="Please verify your email. Send another email verification ?"
         android:textSize="@dimen/_15sdp"
         android:gravity="center"
         android:layout_marginTop="@dimen/_5sdp"

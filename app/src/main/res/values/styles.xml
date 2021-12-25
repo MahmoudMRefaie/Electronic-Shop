@@ -5,7 +5,6 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:statusBarColor">@color/colorAccent</item>
     </style>
 
     <style name="TextInputLayoutStyleRegisteration" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
@@ -20,10 +19,28 @@
         <item name="android:textSize">12dp</item>
     </style>
 
+    <style name="productsOffered" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/thirdColor</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="android:textColorHint">@color/lightestColor</item>
+        <item name="hintTextAppearance">@style/active</item>
+    </style>
+    <style name="active" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/whiteColor</item>
+        <item name="colorOnSurface">@color/greyColor</item>
+        <item name="colorControlActivated">@color/thirdColor</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
     <style name="RippleStyleGrey">
         <item name="mrl_rippleOverlay">true</item>
         <item name="mrl_rippleColor">@color/greyColor</item>
         <item name="mrl_rippleAlpha">0.2</item>
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/greyColor</item>
+        <item name="colorControlActivated">@color/subColor</item>
     </style>
 
 </resources>

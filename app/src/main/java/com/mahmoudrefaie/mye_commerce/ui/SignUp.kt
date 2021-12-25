@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.mahmoudrefaie.mye_commerce.R
 import com.mahmoudrefaie.mye_commerce.pojo.User
@@ -43,7 +44,7 @@ class SignUp : AppCompatActivity(), View.OnClickListener {
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_arrow_back_blue_24dp)
         supportActionBar!!.title = ""
 
-        setCountries()  //This function to set countries in Country field dropdown
+        setCities()  //This function to set cities in city field dropdown
         setTermsandPrivacy() //This function to make Terms part in TextView is colored and clickable
 
         signUpBtn.setOnClickListener(this)
@@ -51,38 +52,42 @@ class SignUp : AppCompatActivity(), View.OnClickListener {
     }
     override fun onClick(view: View?) {
         if(view?.id == R.id.signUpBtn) {
-            val database = Firebase.database
-            val usersRef = database.getReference("users")
+            val db = FirebaseFirestore.getInstance()
+            val userRef = db.collection("User")
+            //val usersRef = database.getReference("users")
 
             val firstName = firstName.editText?.text.toString()
             val lastName = lastName.editText?.text.toString()
             val email = email.editText?.text.toString().trim()
             val password = password.editText?.text.toString()
-            val country = dropdownText.text.toString()
+            val city = dropdownText.text.toString()
 
             val selectedGenderId= radioGroup.checkedRadioButtonId
             val selectedGender = findViewById(selectedGenderId) as RadioButton
             val gender = selectedGender.text.toString()
 
-            if(firstName.isNotEmpty() && lastName.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && country.isNotEmpty() && gender.isNotEmpty()) {
+            if(firstName.isNotEmpty() && lastName.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && city.isNotEmpty() && gender.isNotEmpty()) {
                 fAuth?.createUserWithEmailAndPassword(email,password)?.addOnCompleteListener { task ->
                     if (task.isSuccessful) {
 
-                        //Send verification link
-                        //user = fAuth?.currentUser!!
-                        user?.sendEmailVerification()?.addOnSuccessListener{
-                            Toast.makeText(applicationContext, "Email verification has been sent", Toast.LENGTH_LONG).show()
-                        }?.addOnFailureListener {
-                            Log.d("Email verification ",it.message!!)
-                        }
+                        val id = userRef.document()
+                        val userData = User("1", firstName, lastName , email, password, gender, city)
+                        //usersRef.child(id).setValue(userData)
 
-                        val id = usersRef.push().key!!
-                        val userData = User(id, firstName, lastName, email, password, gender, country, true)
-                        usersRef.child(id).setValue(userData)
-
-                        val intent = Intent(applicationContext, Login::class.java)
-                        startActivity(intent)
-                        finish()
+                        userRef.add(userData)
+                            .addOnSuccessListener {
+                                user?.sendEmailVerification()?.addOnSuccessListener{
+                                    Toast.makeText(applicationContext, "Email verification has been sent", Toast.LENGTH_LONG).show()
+                                }?.addOnFailureListener {
+                                    Log.d("Email verification ",it.message!!)
+                                    Toast.makeText(applicationContext, it.message, Toast.LENGTH_LONG).show()
+                                }
+                                val intent = Intent(applicationContext, Login::class.java)
+                                startActivity(intent)
+                                finish()
+                            }.addOnFailureListener {
+                                Log.d("Add user error ",it.message.toString())
+                            }
                     } else
                         Toast.makeText(applicationContext,task.exception?.message, Toast.LENGTH_LONG).show()
                 }
@@ -102,13 +107,8 @@ class SignUp : AppCompatActivity(), View.OnClickListener {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setCountries(){
-        //val countries = listOf("Egypt","Soudan","Libya","Tunisia","Algeria","Maroco","Pelastin","Syria")
-        val adapter = ArrayAdapter.createFromResource(
-            this,
-            R.array.country_list,
-            R.layout.dropdown_layout
-        )
+    private fun setCities() {
+        val adapter = ArrayAdapter.createFromResource(this, R.array.city_list, R.layout.dropdown_layout)
         dropdownText.setAdapter(adapter)
     }
 
@@ -116,7 +116,7 @@ class SignUp : AppCompatActivity(), View.OnClickListener {
         val termsAndPrivacyText = "By clicking the \"Sign Up\" button, you confirm that you accept our Terms of use and Privacy Policy"
         val specificText = SpannableString(termsAndPrivacyText)
         val clkspn = object : ClickableSpan(){
-            override fun onClick(p0: View) {
+            override fun onClick(p0: View) { 
                 val intent = Intent(applicationContext, TermsPrivacy::class.java)
                 startActivity(intent)
             }

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ProductDetails"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/mainColor">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_250sdp"
+            android:src="@drawable/laptop_colored_icon"
+            android:background="@drawable/curved_background"
+            android:padding="@dimen/_30sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/proName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Product Name"
+            android:textSize="@dimen/_20sdp"
+            android:textColor="@color/whiteColor"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"/>
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="?android:attr/ratingBarStyleIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:isIndicator="true"
+            android:theme="@style/RatingBar"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="@+id/proName"
+            app:layout_constraintTop_toBottomOf="@+id/proName"/>
+
+        <TextView
+            android:id="@+id/proPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Price"
+            android:textColor="@color/thirdColor"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/proName"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+        <TextView
+            android:id="@+id/proDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="discount"
+            android:textColor="@color/greyColor"
+            android:textSize="@dimen/_13sdp"
+            app:layout_constraintStart_toStartOf="@+id/proName"
+            app:layout_constraintTop_toBottomOf="@+id/proPrice" />
+
+        <TextView
+            android:id="@+id/brandTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Brand:"
+            android:textColor="@color/whiteColor"
+            android:textSize="@dimen/_17sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/proName"
+            app:layout_constraintTop_toBottomOf="@+id/proDiscount"/>
+
+        <TextView
+            android:id="@+id/proBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="brand"
+            android:textColor="@color/whiteColor"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/brandTV"
+            app:layout_constraintStart_toStartOf="@+id/proCondition"
+            app:layout_constraintTop_toTopOf="@+id/brandTV" />
+
+        <TextView
+            android:id="@+id/conditionTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Condition:"
+            android:textColor="@color/whiteColor"
+            android:textSize="@dimen/_17sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/proName"
+            app:layout_constraintTop_toBottomOf="@+id/brandTV"/>
+        <TextView
+            android:id="@+id/proCondition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:text="condition"
+            android:textColor="@color/whiteColor"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/conditionTV"
+            app:layout_constraintStart_toEndOf="@+id/conditionTV"
+            app:layout_constraintTop_toTopOf="@+id/conditionTV"/>
+
+        <TextView
+            android:id="@+id/colorTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Color:"
+            android:textColor="@color/whiteColor"
+            android:textSize="@dimen/_17sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/proName"
+            app:layout_constraintTop_toBottomOf="@+id/conditionTV"/>
+
+        <TextView
+            android:id="@+id/proColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="color"
+            android:textColor="@color/whiteColor"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/colorTV"
+            app:layout_constraintStart_toStartOf="@+id/proCondition"
+            app:layout_constraintTop_toTopOf="@+id/colorTV" />
+
+        <TextView
+            android:id="@+id/descriptionTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Description:"
+            android:textColor="@color/whiteColor"
+            android:textSize="@dimen/_17sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/proName"
+            app:layout_constraintTop_toBottomOf="@+id/colorTV"/>
+
+        <TextView
+            android:id="@+id/proDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="description"
+            android:textColor="@color/whiteColor"
+            android:textSize="@dimen/_16sdp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="@+id/proName"
+            app:layout_constraintStart_toStartOf="@+id/descriptionTV"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionTV" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            app:cardCornerRadius="@dimen/_20sdp"
+            app:cardElevation="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/proDescription">
+
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/addToCartBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/thirdColor"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:shadowColor="@color/whiteColor"
+                    android:text="Add to cart"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold" />
+            </com.balysv.materialripple.MaterialRippleLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

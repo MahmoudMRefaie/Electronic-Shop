@@ -98,9 +98,9 @@
                             android:hint="First Name"
                             android:lines="1"
                             android:maxLines="1"
+                            android:singleLine="true"
                             android:paddingLeft="@dimen/_10sdp"
                             android:paddingRight="@dimen/_10sdp"
-                            android:singleLine="true"
                             android:textCursorDrawable="@color/colorAccent" />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -199,7 +199,7 @@
                 </RadioGroup>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/country"
+                    android:id="@+id/city"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -215,7 +215,7 @@
                         android:layout_height="match_parent"
                         android:enabled="false"
                         android:focusable="false"
-                        android:hint="Country"
+                        android:hint="City"
                         android:inputType="none"
                         android:paddingHorizontal="@dimen/_10sdp"
                         android:textColor="@color/blackColor" />
@@ -229,12 +229,10 @@
                     app:cardElevation="@dimen/_304sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/country">
-
+                    app:layout_constraintTop_toBottomOf="@+id/city">
                     <com.balysv.materialripple.MaterialRippleLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-
                         <Button
                             android:id="@+id/signUpBtn"
                             android:layout_width="match_parent"

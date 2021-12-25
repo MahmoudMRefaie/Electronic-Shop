@@ -1,6 +1,27 @@
 <resources>
     <string name="app_name">Electronic shop</string>
 
+    <string name="google_map_api_key">AIzaSyB8oGbBPyfQEaTWySHzeYxQ1uqHw9SSj-g</string>
+
+    <string-array name="city_list">
+        <item>Aswan</item>
+        <item>Luxor</item>
+        <item>Qena</item>
+        <item>Sohag</item>
+        <item>Assiut</item>
+        <item>Minia</item>
+        <item>Beni Swief</item>
+        <item>Cairo</item>
+        <item>Alexandria</item>
+        <item>Red Sea</item>
+        <item>Esmailia</item>
+        <item>Suiz</item>
+        <item>El-Sharkia</item>
+        <item>El-Monofia</item>
+        <item>El-Gharbia</item>
+        <item>El-Dakahlia</item>
+    </string-array>
+
     <string-array name="country_list">
         <item>Egypt</item>
         <item>Sudan</item>
@@ -13,6 +34,26 @@
         <item>Syria</item>
         <item>Yemen</item>
     </string-array>
+
+    <string-array name="category_list">
+        <item>@string/Laptops</item>
+        <item>@string/Mobiles</item>
+        <item>@string/Tablets</item>
+        <item>@string/PCs</item>
+        <item>@string/Screens</item>
+        <item>@string/Wears</item>
+        <item>@string/Accessories</item>
+        <item>@string/Home_appliances</item>
+    </string-array>
+
+    <string name="Laptops">Laptops</string>
+    <string name="Mobiles">Mobiles</string>
+    <string name="Tablets">Tablets</string>
+    <string name="PCs">PCs</string>
+    <string name="Screens">Screens</string>
+    <string name="Wears">Wears</string>
+    <string name="Accessories">Accessories</string>
+    <string name="Home_appliances">Home appliances</string>
 
     <string name="signUpHint">Create an account to access all features</string>
 
@@ -39,5 +80,7 @@
         ●<i>Mobile Device Data.</i> We may collect device information (such as your mobile device ID, model and manufacturer), operating system, version information and IP address.\n
         ●<i>Push Notifications.</i> We may request to send you push notifications regarding your account or the Application. If you wish to opt-out from receiving these types of communications, you may turn them off in your device’s settings.
     </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

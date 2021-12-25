@@ -4,15 +4,287 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OfferProduct">
+    android:background="@color/mainColor"
+    tools:context=".ui.OfferProduct">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Offer Products"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Offer your product"
+                android:textColor="@color/subColor"
+                android:textSize="@dimen/_25sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/pickImages"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:src="@drawable/pick_images"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <ImageSwitcher
+                android:id="@+id/showImages"
+                android:layout_width="@dimen/_130sdp"
+                android:layout_height="@dimen/_130sdp"
+                android:foregroundGravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pickImages" />
+
+            <ImageView
+                android:id="@+id/previousSwitcher"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:src="@drawable/previous_switcher"
+                app:layout_constraintBottom_toBottomOf="@+id/showImages"
+                app:layout_constraintEnd_toStartOf="@+id/showImages"
+                app:layout_constraintTop_toTopOf="@+id/showImages" />
+
+            <ImageView
+                android:id="@+id/nextSwitcher"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:src="@drawable/next_switcher"
+                app:layout_constraintBottom_toBottomOf="@+id/showImages"
+                app:layout_constraintStart_toEndOf="@+id/showImages"
+                app:layout_constraintTop_toTopOf="@+id/showImages" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/showImages">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    app:errorEnabled="true"
+                    style="@style/productsOffered">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Name"
+                        android:textColor="@color/subColor"
+                        android:textSize="@dimen/_15sdp"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textCursorDrawable="@color/whiteColor"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/category"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    app:boxStrokeColor="@color/thirdColor"
+                    android:textColorHint="@color/lightestColor"
+                    app:endIconMode="dropdown_menu"
+                    app:endIconTint="@color/lightestColor"
+                    app:errorEnabled="true">
+                    <AutoCompleteTextView
+                        android:id="@+id/dropdownCategories"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:enabled="false"
+                        android:focusable="false"
+                        android:hint="Category"
+                        android:textColor="@color/subColor"
+                        android:textSize="@dimen/_15sdp"
+                        android:inputType="none"
+                        android:paddingHorizontal="@dimen/_10sdp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/brand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    app:errorEnabled="true"
+                    style="@style/productsOffered">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Brand"
+                        android:textColorHint="@color/whiteColor"
+                        android:textColor="@color/subColor"
+                        android:textSize="@dimen/_15sdp"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textCursorDrawable="@color/whiteColor"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/condition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    app:errorEnabled="true"
+                    style="@style/productsOffered">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Condition"
+                        android:textColorHint="@color/whiteColor"
+                        android:textColor="@color/subColor"
+                        android:textSize="@dimen/_15sdp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textCursorDrawable="@color/whiteColor"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    app:errorEnabled="true"
+                    style="@style/productsOffered">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Price"
+                        android:textColorHint="@color/whiteColor"
+                        android:textColor="@color/subColor"
+                        android:textSize="@dimen/_15sdp"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textCursorDrawable="@color/whiteColor"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/discount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    app:errorEnabled="true"
+                    style="@style/productsOffered">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Discount"
+                        android:textColorHint="@color/whiteColor"
+                        android:textColor="@color/subColor"
+                        android:textSize="@dimen/_15sdp"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textCursorDrawable="@color/whiteColor"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    app:errorEnabled="true"
+                    style="@style/productsOffered">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Color"
+                        android:textColorHint="@color/whiteColor"
+                        android:textColor="@color/subColor"
+                        android:textSize="@dimen/_15sdp"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textCursorDrawable="@color/whiteColor"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    app:errorEnabled="true"
+                    style="@style/productsOffered">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Description"
+                        android:textColorHint="@color/whiteColor"
+                        android:textColor="@color/subColor"
+                        android:textSize="@dimen/_15sdp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textCursorDrawable="@color/whiteColor"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_20sdp"
+                    app:cardElevation="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_20sdp">
+                    <com.balysv.materialripple.MaterialRippleLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <Button
+                            android:id="@+id/offer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:backgroundTint="@color/thirdColor"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:shadowColor="@color/whiteColor"
+                            android:text="Offer"
+                            android:textColor="@color/whiteColor"
+                            android:textSize="@dimen/_16sdp"
+                            android:textStyle="bold" />
+                    </com.balysv.materialripple.MaterialRippleLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.mahmoudrefaie.mye_commerce.ui
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -19,12 +20,13 @@ class Login : AppCompatActivity() , View.OnClickListener {
 
     var fAuth: FirebaseAuth? = null
     var user: FirebaseUser? = null
+    private var emailShared: SharedPreferences? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         fAuth = FirebaseAuth.getInstance()
-
+        emailShared = getSharedPreferences("EMAIL",MODE_PRIVATE);
         // Write a message to the database
         val database = Firebase.database
         val myRef = database.reference
@@ -48,15 +50,14 @@ class Login : AppCompatActivity() , View.OnClickListener {
             val password = password.editText?.text.toString()
 
             if(email.isNotEmpty() && password.isNotEmpty()){
-
                 fAuth?.signInWithEmailAndPassword(email, password)!!.addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        if (user != null && user?.isEmailVerified!!) {
-                            Toast.makeText(applicationContext, "Logged successfully", Toast.LENGTH_LONG).show()
+                        if (fAuth?.currentUser?.isEmailVerified!!) {
+                            val userEmail = fAuth?.currentUser!!.email
+                            emailShared?.edit()?.putString("user_email",userEmail)?.apply();
                             val intent = Intent(applicationContext, MainPage::class.java)
                             startActivity(intent)
                         }else{
-                            Toast.makeText(applicationContext,"verify your email",Toast.LENGTH_LONG).show()
                             openEmailVerificationDialog()
                         }
                     } else

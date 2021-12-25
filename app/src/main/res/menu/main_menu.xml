@@ -19,10 +19,4 @@
             android:icon="@drawable/profile_icon"/>
     </group>
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_contactUs"
-            android:title="Profile"
-            android:icon="@drawable/profile_icon"/>
-    </group>
 </menu>

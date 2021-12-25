@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#841700</color>
+    <color name="colorPrimary">@color/thirdColor</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#03DAC5</color>
 
     <color name="mainColor">#373F55</color>
     <color name="lightMainColor">#4A5470</color>
+    <color name="lightestColor">#7681A2</color>
     <color name="subColor">#FF7830</color>
+    <color name="lightSubColor">#FDCBB0</color>
     <color name="thirdColor">#0A8DFF</color>
 
     <color name="whiteColor">#ffffff</color>
     <color name="greyColor">#726F6F</color>
     <color name="blackColor">#000000</color>
     <color name="SignInColor">#012B69</color>
+
+    <color name="mtrl_textinput_default_box_stroke_color">@color/lightestColor</color>
 
 
 
